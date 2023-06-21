@@ -1,1 +1,18 @@
-<%= render 'userinfo', user: @user, book: @book %>
+<%= render 'userinfo', user: @users, book: @book %>
+
+<h2>Books</h2>
+
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Opinion</th>
+    </tr>
+    <% @books.each do |books| %>
+    <tr>
+        <td><%= image_tag @users.get_image(100,100) %></td>    
+        <td><%= link_to books.title, book_path(books.id) %></td> 
+        <td><%= books.body %></td>
+    </tr>
+    <% end %>
+</table>
