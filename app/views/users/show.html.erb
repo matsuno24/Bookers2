@@ -1,4 +1,6 @@
-<%= render 'userinfo', user: @users, book: @book %>
+<%= flash[:notice] %>
+
+<%= render 'userinfo', user: @user, book: @book %>
 
 <h2>Books</h2>
 
@@ -8,9 +10,9 @@
         <th>Title</th>
         <th>Opinion</th>
     </tr>
-    <% @books.each do |books| %>
+    <% @user.books.each do |books| %>
     <tr>
-        <td><%= image_tag @users.get_image(100,100) %></td>    
+        <td><%= image_tag @user.get_image(100,100) %></td>    
         <td><%= link_to books.title, book_path(books.id) %></td> 
         <td><%= books.body %></td>
     </tr>
