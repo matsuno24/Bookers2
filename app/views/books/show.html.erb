@@ -1,9 +1,17 @@
 <%= flash[:notice] %>
 
-<%= render 'users/userinfo', user: @books.user, book: @book %>
+<div class="container">
+  <div class="row">
 
+<div class = "col-lg-3">
+<%= render 'users/userinfo', user: @books.user, book: @book %>
+</div>
+
+
+<div class="col-lg-8">
 <h2>Book detail</h2>
 
+<table class= "table table-striped">
 <tr>
     <td><%= image_tag @books.user.get_image(100,100) %></td>    
     <td><%= link_to @books.user.name, user_path(@books.user_id) %></td>
@@ -11,7 +19,13 @@
     <td><%= @books.body %></td>
     
      <% if @books.user == current_user %>
-      <td><%= link_to 'Edit', edit_book_path(@books.id) %></td>
-      <td><%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+      <td><%= link_to 'Edit', edit_book_path(@books.id), class: "btn btn-secondary" %></td>
+      <td><%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-secondary" %></td>
     <% end %>
 </tr>
+
+</table>
+
+</div>
+</div>
+</div>

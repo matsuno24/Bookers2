@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   
-  before_action :is_matching_login_book, only: [:create, :destroy, :edit, :update]
+  before_action :is_matching_login_book, only: [:destroy, :edit, :update]
   
   def index
     @book = Book.new
