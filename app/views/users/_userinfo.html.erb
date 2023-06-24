@@ -20,7 +20,11 @@
         </tr>
         
         <tr>
-          <th><%= link_to "編集", edit_user_path(user.id), class: "btn btn-secondary" %></th>
+          <th>
+            <%= link_to edit_user_path(user.id) do %>
+            <button><i class="fas fa-user-cog"></i></button>
+            <% end %>
+          </th>
         </tr>
       </table>
       
