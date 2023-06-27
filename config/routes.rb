@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users
   
   resources :books do
-    resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     #books(投稿)に対してコメントをするからコメントのモデルを親子関係にする
   end
 
